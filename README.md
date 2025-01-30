@@ -1,6 +1,6 @@
-# JobHunt.
+# JobHive.
 
-## JobHunt is a job application platform that connects job seekers with recruiters. It allows users to search for jobs, apply for positions, and manage their profiles.
+## JobHive is a job application platform that connects job seekers with recruiters. It allows users to search for jobs, apply for positions, and manage their profiles.
 
 
 
