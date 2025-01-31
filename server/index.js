@@ -33,10 +33,16 @@ app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
 // Serve frontend static files
-app.use(express.static("../client/dist"));
-app.get("*", (_, res) => {
-  res.sendFile(path.resolve("../client/dist", "index.html"));
-});
+const clientBuildPath = path.join(__dirname, "..", "client", "dist");
+
+if (fs.existsSync(clientBuildPath)) {
+  app.use(express.static(clientBuildPath));
+  app.get("*", (_, res) => {
+    res.sendFile(path.resolve(clientBuildPath, "index.html"));
+  });
+} else {
+  console.error("❌ ERROR: client/dist folder not found!");
+}
 
 // Start server
 app.listen(PORT, async () => {
