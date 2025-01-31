@@ -9,6 +9,7 @@ import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
 import path from "path";
 import { fileURLToPath } from "url"; // Fix for ES module __dirname
+import fs from "fs";
 
 dotenv.config();
 
