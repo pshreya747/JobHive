@@ -7,7 +7,7 @@
     "server": "nodemon server/index.js",
     "client": "cd client && npm run start",
     "build": "cd client && npm install && npm run build",
-    "start": "node server/index.js",
+   "start": "node --experimental-json-modules server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
