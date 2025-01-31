@@ -8,8 +8,13 @@ import companyRoute from "./routes/company.route.js";
 import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
 import path from "path";
+import { fileURLToPath } from "url"; // Fix for ES module __dirname
 
 dotenv.config();
+
+// Fix for __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -45,7 +50,7 @@ if (fs.existsSync(clientBuildPath)) {
 }
 
 // Start server
-app.listen(PORT, async () => {
-  await connectDB();
-  console.log(`✅ Server is running on port ${PORT}`);
+app.listen(PORT, () => {
+  connectDB();
+  console.log(`Server is running on port ${PORT}`);
 });
